@@ -1,6 +1,7 @@
 {
   "domain": "my_home_connect",
   "name": "My Home Connect",
+  "version":"0.0.1"
   "documentation": "https://www.home-assistant.io/integrations/home_connect",
   "dependencies": ["http"],
   "codeowners": ["@Tecotix"],
