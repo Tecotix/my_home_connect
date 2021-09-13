@@ -1,6 +1,6 @@
 """Constants for the Home Connect integration."""
 
-DOMAIN = "home_connect"
+DOMAIN = "my_home_connect"
 
 OAUTH2_AUTHORIZE = "https://api.home-connect.com/security/oauth/authorize"
 OAUTH2_TOKEN = "https://api.home-connect.com/security/oauth/token"
@@ -30,7 +30,7 @@ BSH_DOOR_STATE_CLOSED = "BSH.Common.EnumType.DoorState.Closed"
 BSH_DOOR_STATE_LOCKED = "BSH.Common.EnumType.DoorState.Locked"
 BSH_DOOR_STATE_OPEN = "BSH.Common.EnumType.DoorState.Open"
 
-SIGNAL_UPDATE_ENTITIES = "home_connect.update_entities"
+SIGNAL_UPDATE_ENTITIES = "my_home_connect.update_entities"
 
 ATTR_AMBIENT = "ambient"
 ATTR_DESC = "desc"

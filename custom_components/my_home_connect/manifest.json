@@ -1,10 +1,9 @@
 {
   "domain": "my_home_connect",
   "name": "My Home Connect",
-  "version":"0.0.1",
   "documentation": "https://www.home-assistant.io/integrations/home_connect",
   "dependencies": ["http"],
-  "codeowners": ["@Tecotix"],
+  "codeowners": ["@DavidMStraub"],
   "requirements": ["homeconnect==0.6.3"],
   "config_flow": true,
   "iot_class": "cloud_push"
