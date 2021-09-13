@@ -71,10 +71,8 @@ class ConfigEntryAuth(homeconnect.HomeConnectAPI):
         for app in appl:
             if app.type == "Dryer":
                 device = Dryer(self.hass, app)
-            # elif app.type == "Washer":
-                # device = Washer(self.hass, app)
-            elif app.type == "WasherDryer":
-                device = WasherDryer(self.hass, app)
+            elif app.type == "Washer":
+                device = Washer(self.hass, app)
             elif app.type == "Dishwasher":
                 device = Dishwasher(self.hass, app)
             elif app.type == "FridgeFreezer":
@@ -249,68 +247,7 @@ class DeviceWithRemoteStart(HomeConnectDevice):
             ATTR_DESC: "Remote Start",
             ATTR_SENSOR_TYPE: "remote_start",
         }
-class WasherDryer(
-    DeviceWithDoor,
-    DeviceWithOpState,
-    DeviceWithPrograms,
-    DeviceWithRemoteControl,
-    DeviceWithRemoteStart,
-):
-    """Dryer class."""
 
-    PROGRAMS = [
-        {"name": "LaundryCare.Dryer.Program.Cotton"},
-		{"name": "LaundryCare.Washer.Program.Cotton.CottonEco"},
-		{"name": "LaundryCare.Washer.Program.EasyCare"},
-        {"name": "LaundryCare.Dryer.Program.Synthetic"},
-        {"name": "LaundryCare.Dryer.Program.Mix"},
-        {"name": "LaundryCare.Dryer.Program.Blankets"},
-        {"name": "LaundryCare.Dryer.Program.BusinessShirts"},
-        {"name": "LaundryCare.Dryer.Program.DownFeathers"},
-        {"name": "LaundryCare.Dryer.Program.Hygiene"},
-        {"name": "LaundryCare.Dryer.Program.Jeans"},
-        {"name": "LaundryCare.Dryer.Program.Outdoor"},
-        {"name": "LaundryCare.Dryer.Program.SyntheticRefresh"},
-        {"name": "LaundryCare.Dryer.Program.Towels"},
-        {"name": "LaundryCare.Dryer.Program.Delicates"},
-        {"name": "LaundryCare.Dryer.Program.Super40"},
-        {"name": "LaundryCare.Dryer.Program.Shirts15"},
-        {"name": "LaundryCare.Dryer.Program.Pillow"},
-        {"name": "LaundryCare.Dryer.Program.AntiShrink"},
-		{"name": "LaundryCare.Washer.Program.DelicatesSilk"},
-		{"name": "LaundryCare.Washer.Program.Wool"},
-		{"name": "LaundryCare.Washer.Program.Sensitive"},
-		{"name": "LaundryCare.Washer.Program.Auto30"},
-        {"name": "LaundryCare.Washer.Program.Auto40"},
-        {"name": "LaundryCare.Washer.Program.Auto60"},
-		{"name": "LaundryCare.Washer.Program.Chiffon"},
-        {"name": "LaundryCare.Washer.Program.Curtains"},
-        {"name": "LaundryCare.Washer.Program.DarkWash"},
-        {"name": "LaundryCare.Washer.Program.Dessous"},
-        {"name": "LaundryCare.Washer.Program.Monsoon"},
-		{"name": "LaundryCare.Washer.Program.PlushToy"},
-        {"name": "LaundryCare.Washer.Program.ShirtsBlouses"},
-        {"name": "LaundryCare.Washer.Program.SportFitness"},
-		{"name": "LaundryCare.Washer.Program.WaterProof"},
-		{"name": "LaundryCare.Dryer.Option.DryingTarget"},
-		{"name": "LaundryCare.Washer.Option.Temperature"},
-		{"name": "LaundryCare.Washer.Option.SpinSpeed"},
-		
-    ]
-
-    def get_entity_info(self):
-        """Get a dictionary with infos about the associated entities."""
-        door_entity = self.get_door_entity()
-        remote_control = self.get_remote_control()
-        remote_start = self.get_remote_start()
-        op_state_sensor = self.get_opstate_sensor()
-        program_sensors = self.get_program_sensors()
-        program_switches = self.get_program_switches()
-        return {
-            "binary_sensor": [door_entity, remote_control, remote_start],
-            "switch": program_switches,
-            "sensor": program_sensors + op_state_sensor,
-        }
 
 class Dryer(
     DeviceWithDoor,
